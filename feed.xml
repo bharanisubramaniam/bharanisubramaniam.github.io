@@ -5,13 +5,36 @@
     <link href="https://blog.rust-lang.org/" rel="alternate" type="text/html" />
     <id>https://blog.rust-lang.org/</id>
     <title>Iter 0</title>
-    <subtitle>Helping with steps we do in first few weeks of a software project</subtitle>
+    <subtitle>Iter0 is my personal blog. This is my attempt to write down my experience in trying out different software solutions.</subtitle>
     <author>
         <name>Maintained by Bharani.</name>
         <uri>https://github.com/rust-lang/blog.rust-lang.org/</uri>
     </author>
-    <updated>2020-05-18T10:31:35.065166+00:00</updated>
+    <updated>2020-05-19T05:39:30.668849+00:00</updated>
 
+    
+    <entry>
+        <title>[Draft] OAuth2 - Ory Hydra</title>
+        <link rel="alternate" href="https://blog.rust-lang.org/2020/05/18/OAuth2-Ory-Hydra.html" type="text/html" title="[Draft] OAuth2 - Ory Hydra" />
+        <published>2020-05-18T00:00:00+00:00</published>
+        <updated>2020-05-18T00:00:00+00:00</updated>
+        <id>https://blog.rust-lang.org/2020/05/18/OAuth2-Ory-Hydra.html</id>
+        <content type="html" xml:base="https://blog.rust-lang.org/2020/05/18/OAuth2-Ory-Hydra.html">&lt;h2&gt;&lt;a href=&quot;#what-is-oauth2&quot; aria-hidden=&quot;true&quot; class=&quot;anchor&quot; id=&quot;what-is-oauth2&quot;&gt;&lt;/a&gt;What is OAuth2?&lt;/h2&gt;
+&lt;p&gt;OAuth2 is a protocol to authorize access to a protected resource. The protocol allows the user to grant access to the protected information to a client applicaiton with out sharing secrets.&lt;/p&gt;
+&lt;p&gt;Different actors / roles in OAuth2 are&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;1) Client - the application that is requesting access to resources of the user
+2) Resource API Server - the API server managing the protected information of the user
+3) Resource owner - the person who is giving access to the client app
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2&gt;&lt;a href=&quot;#is-oauth2-an-authorization-or-authentication-protocol&quot; aria-hidden=&quot;true&quot; class=&quot;anchor&quot; id=&quot;is-oauth2-an-authorization-or-authentication-protocol&quot;&gt;&lt;/a&gt;Is OAuth2 an authorization or authentication protocol?&lt;/h2&gt;
+&lt;h2&gt;&lt;a href=&quot;#why-oauth2&quot; aria-hidden=&quot;true&quot; class=&quot;anchor&quot; id=&quot;why-oauth2&quot;&gt;&lt;/a&gt;Why OAuth2?&lt;/h2&gt;
+&lt;h2&gt;&lt;a href=&quot;#how-to-do-this&quot; aria-hidden=&quot;true&quot; class=&quot;anchor&quot; id=&quot;how-to-do-this&quot;&gt;&lt;/a&gt;How to do this?&lt;/h2&gt;
+</content>
+
+        <author>
+            <name>Bharani</name>
+        </author>
+    </entry>
     
     <entry>
         <title>Announcing Iter0</title>
@@ -19,11 +42,10 @@
         <published>2020-05-05T00:00:00+00:00</published>
         <updated>2020-05-05T00:00:00+00:00</updated>
         <id>https://blog.rust-lang.org/2020/05/05/Iter0.html</id>
-        <content type="html" xml:base="https://blog.rust-lang.org/2020/05/05/Iter0.html">&lt;h2&gt;&lt;a href=&quot;#what-is-iter0&quot; aria-hidden=&quot;true&quot; class=&quot;anchor&quot; id=&quot;what-is-iter0&quot;&gt;&lt;/a&gt;What is iter0&lt;/h2&gt;
-&lt;p&gt;Iteration 0 is the first iteration of a software project. It is in this iteration we make important choices. These choices have a great impact on what gets built incrementally over time so we need to pay attention and make as fewer choices as possible and leave the rest for the last responsible phase of the project.&lt;/p&gt;
-&lt;p&gt;Iter0 is my attempt to distil the experience of evaluating software components during this iteration 0.&lt;/p&gt;
+        <content type="html" xml:base="https://blog.rust-lang.org/2020/05/05/Iter0.html">&lt;h2&gt;&lt;a href=&quot;#what-is-iter0&quot; aria-hidden=&quot;true&quot; class=&quot;anchor&quot; id=&quot;what-is-iter0&quot;&gt;&lt;/a&gt;What is Iter0&lt;/h2&gt;
+&lt;p&gt;Iter0 is my attempt to distil the experience of evaluating software solutions - frameworks, libraries, utilities or platforms. I don't claim my evaluation to be complete but it should be good enough to get things started. No solution is perfect and can meet all the requirements so I focus on the important aspects that form the foundation of the system I am considering to build.&lt;/p&gt;
 &lt;h2&gt;&lt;a href=&quot;#why-bother-to-document-it-here&quot; aria-hidden=&quot;true&quot; class=&quot;anchor&quot; id=&quot;why-bother-to-document-it-here&quot;&gt;&lt;/a&gt;Why bother to document it here?&lt;/h2&gt;
-&lt;p&gt;Writing this down clears my thinking and I hope someone would find this useful.&lt;/p&gt;
+&lt;p&gt;I always wanted to write it down and I am glad I finally did.&lt;/p&gt;
 </content>
 
         <author>
