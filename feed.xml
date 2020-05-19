@@ -10,7 +10,7 @@
         <name>Maintained by Bharani.</name>
         <uri>https://github.com/rust-lang/blog.rust-lang.org/</uri>
     </author>
-    <updated>2020-05-19T05:39:30.668849+00:00</updated>
+    <updated>2020-05-19T05:45:24.826208+00:00</updated>
 
     
     <entry>
@@ -43,7 +43,7 @@
         <updated>2020-05-05T00:00:00+00:00</updated>
         <id>https://blog.rust-lang.org/2020/05/05/Iter0.html</id>
         <content type="html" xml:base="https://blog.rust-lang.org/2020/05/05/Iter0.html">&lt;h2&gt;&lt;a href=&quot;#what-is-iter0&quot; aria-hidden=&quot;true&quot; class=&quot;anchor&quot; id=&quot;what-is-iter0&quot;&gt;&lt;/a&gt;What is Iter0&lt;/h2&gt;
-&lt;p&gt;Iter0 is my attempt to distil the experience of evaluating software solutions - frameworks, libraries, utilities or platforms. I don't claim my evaluation to be complete but it should be good enough to get things started. No solution is perfect and can meet all the requirements so I focus on the important aspects that form the foundation of the system I am considering to build.&lt;/p&gt;
+&lt;p&gt;Iter0 is my attempt to distil the experience of evaluating software solutions - frameworks, libraries, utilities or platforms. I don't claim my evaluation to be complete but it should be good enough to get things started. No solution is perfect and can meet all the requirements so I evaluate on the important aspects that form the foundation of the system I am considering to build.&lt;/p&gt;
 &lt;h2&gt;&lt;a href=&quot;#why-bother-to-document-it-here&quot; aria-hidden=&quot;true&quot; class=&quot;anchor&quot; id=&quot;why-bother-to-document-it-here&quot;&gt;&lt;/a&gt;Why bother to document it here?&lt;/h2&gt;
 &lt;p&gt;I always wanted to write it down and I am glad I finally did.&lt;/p&gt;
 </content>
