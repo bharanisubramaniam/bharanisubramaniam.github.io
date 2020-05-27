@@ -2,19 +2,19 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Iter 0</title>
+    <title>[Draft] OAuth2 - Ory Hydra | Iter 0</title>
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <meta name="description" content="Empowering everyone to build reliable and efficient software.">
      <!-- Twitter card -->
  <meta name="twitter:card" content="summary">
  <meta name="twitter:site" content="@bharani_sub">
  <meta name="twitter:creator" content="@bharani_sub">
- <meta name="twitter:title" content="Iter 0">
+ <meta name="twitter:title" content="[Draft] OAuth2 - Ory Hydra | Iter 0">
  <meta name="twitter:description" content="Iter0 is my personal blog. This is my attempt to write down my experience in trying out different software solutions.">
 <meta name="twitter:image" content="https://www.rust-lang.org/static/images/rust-social.jpg">
 
 <!-- Facebook OpenGraph -->
-<meta property="og:title" content="Iter 0" />
+<meta property="og:title" content="[Draft] OAuth2 - Ory Hydra | Iter 0" />
 <meta property="og:description" content="Iter0 is my personal blog. This is my attempt to write down my experience in trying out different software solutions.">
 <meta property="og:image" content="https://www.rust-lang.org/static/images/rust-social-wide.jpg" />
 <meta property="og:type" content="website" />
@@ -64,38 +64,44 @@
   </ul>
 </nav>
 
-<header class="mt3 mt0-ns mb4-ns">
-  <div class="container flex flex-column flex-row-l justify-between-l">
-    <div class="mw6-l">
-      <p>Welcome to Iter0, my personal blog. This is my attempt to capture the experience of trying out different software solutions.</p>
+<section id="[Draft] OAuth2 - Ory Hydra" class="white">
+  <div class="w-100 mw-none ph3 mw8-m mw8-l center f3">
+    <header>
+      <h2>[Draft] OAuth2 - Ory Hydra</h2>
+      <div class="highlight"></div>
+    </header>
+
+    <div class="publish-date-author">May 18, 2020 &middot; Bharani
+    
     </div>
-  </div>    
-  <div class="container flex flex-column flex-row-l justify-between-l">
-  </div>
-</header>
 
-<section id="posts" class="posts">
-   <div class="w-100 mw-none ph3 mw8-m mw9-l center f3">
+    <div class="post">
+      <h2><a href="#what-is-oauth2" aria-hidden="true" class="anchor" id="what-is-oauth2"></a>What is OAuth2?</h2>
+<p>When you search for OAuth2 you come across definitions like</p>
+<blockquote>
+<p><em>OAuth2 is the industry-standard protocol for authorization</em></p>
+</blockquote>
+<p>We usually relate authorization to a framework that enables us to control the allowed list of actions that a user can perform.We implicitly assume that the user is first authenticated into the system before these authorization rules can be enforced.</p>
+<p>OAuth2 is not that authorization framework we just described.So the first definition needs some refinement - here is my first attempt</p>
+<blockquote>
+<p><em>OAuth2 is the industry-standard protocol to authorize access to an user's account</em></p>
+</blockquote>
+<p>If you are a beginner this definition may raise more questions so let's quickly cover the needs that drove the industry towards OAuth2</p>
+<h2><a href="#what-led-to-oauth2" aria-hidden="true" class="anchor" id="what-led-to-oauth2"></a>What led to OAuth2?</h2>
+<p><img src="/images/2020-05-18/before-oauth2.png" alt="Before OAuth2" /></p>
+<blockquote>
+<p>Users have to explicitly setup authentication mechanisms in each and every system</p>
+</blockquote>
+<p>Two main problems with this setup is that</p>
+<ol>
+<li>Users have to set up their identity multiple times in different systems</li>
+<li>It is not easy to let System B access resources of System A for the same user.</li>
+</ol>
+<h2><a href="#is-oauth2-an-authorization-or-authentication-protocol" aria-hidden="true" class="anchor" id="is-oauth2-an-authorization-or-authentication-protocol"></a>Is OAuth2 an authorization or authentication protocol?</h2>
+<h2><a href="#why-oauth2" aria-hidden="true" class="anchor" id="why-oauth2"></a>Why OAuth2?</h2>
+<h2><a href="#how-to-do-this" aria-hidden="true" class="anchor" id="how-to-do-this"></a>How to do this?</h2>
 
-    <table class="post-list collapse w-100 f2-l f2-m f3-s">
-    
-      <tr>
-        <td class="bn"></td>
-        <td class="bn"><h3 class="f0-l f1-m f2-s mt4 mb0">Posts in 2020</h3></td>
-      </tr>
-      <tr>
-        <td class="tr o-60 pr4 pr5-l bn">May&nbsp;18</td>
-        <td class="bn"><a href="/2020/05/18/Part 1: Introduction to OAuth2.html">Introduction to OAuth2</a></td>
-      </tr>
-    
-      
-      <tr>
-        <td class="tr o-60 pr4 pr5-l bn">May&nbsp;5</td>
-        <td class="bn"><a href="/2020/05/05/Iter0.html">Announcing Iter0</a></td>
-      </tr>
-    
-    </table>
-
+    </div>
   </div>
 </section>
 

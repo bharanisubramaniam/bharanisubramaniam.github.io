@@ -10,25 +10,51 @@
         <name>Maintained by Bharani.</name>
         <uri>https://github.com/rust-lang/blog.rust-lang.org/</uri>
     </author>
-    <updated>2020-05-19T05:45:24.826208+00:00</updated>
+    <updated>2020-05-27T11:23:31.497064+00:00</updated>
 
     
     <entry>
-        <title>[Draft] OAuth2 - Ory Hydra</title>
-        <link rel="alternate" href="https://blog.rust-lang.org/2020/05/18/OAuth2-Ory-Hydra.html" type="text/html" title="[Draft] OAuth2 - Ory Hydra" />
+        <title>Introduction to OAuth2</title>
+        <link rel="alternate" href="https://blog.rust-lang.org/2020/05/18/Part 1: Introduction to OAuth2.html" type="text/html" title="Introduction to OAuth2" />
         <published>2020-05-18T00:00:00+00:00</published>
         <updated>2020-05-18T00:00:00+00:00</updated>
-        <id>https://blog.rust-lang.org/2020/05/18/OAuth2-Ory-Hydra.html</id>
-        <content type="html" xml:base="https://blog.rust-lang.org/2020/05/18/OAuth2-Ory-Hydra.html">&lt;h2&gt;&lt;a href=&quot;#what-is-oauth2&quot; aria-hidden=&quot;true&quot; class=&quot;anchor&quot; id=&quot;what-is-oauth2&quot;&gt;&lt;/a&gt;What is OAuth2?&lt;/h2&gt;
-&lt;p&gt;OAuth2 is a protocol to authorize access to a protected resource. The protocol allows the user to grant access to the protected information to a client applicaiton with out sharing secrets.&lt;/p&gt;
-&lt;p&gt;Different actors / roles in OAuth2 are&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;1) Client - the application that is requesting access to resources of the user
-2) Resource API Server - the API server managing the protected information of the user
-3) Resource owner - the person who is giving access to the client app
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h2&gt;&lt;a href=&quot;#is-oauth2-an-authorization-or-authentication-protocol&quot; aria-hidden=&quot;true&quot; class=&quot;anchor&quot; id=&quot;is-oauth2-an-authorization-or-authentication-protocol&quot;&gt;&lt;/a&gt;Is OAuth2 an authorization or authentication protocol?&lt;/h2&gt;
-&lt;h2&gt;&lt;a href=&quot;#why-oauth2&quot; aria-hidden=&quot;true&quot; class=&quot;anchor&quot; id=&quot;why-oauth2&quot;&gt;&lt;/a&gt;Why OAuth2?&lt;/h2&gt;
-&lt;h2&gt;&lt;a href=&quot;#how-to-do-this&quot; aria-hidden=&quot;true&quot; class=&quot;anchor&quot; id=&quot;how-to-do-this&quot;&gt;&lt;/a&gt;How to do this?&lt;/h2&gt;
+        <id>https://blog.rust-lang.org/2020/05/18/Part 1: Introduction to OAuth2.html</id>
+        <content type="html" xml:base="https://blog.rust-lang.org/2020/05/18/Part 1: Introduction to OAuth2.html">&lt;h2&gt;&lt;a href=&quot;#what-is-oauth2&quot; aria-hidden=&quot;true&quot; class=&quot;anchor&quot; id=&quot;what-is-oauth2&quot;&gt;&lt;/a&gt;What is OAuth2?&lt;/h2&gt;
+&lt;p&gt;When you search for OAuth2 you come across definitions like&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;em&gt;“OAuth2 is the industry-standard protocol for authorization”&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;We usually relate authorization to a framework that enables us to restrict user activities. We implicitly assume that the user is first authenticated into the system before these authorization rules can be enforced. But OAuth2 is not such an authorization framework. If you are a beginner it is hard to clearly define OAuth2 without highlighting the needs that drove the industry towards it.&lt;/p&gt;
+&lt;p&gt;We start with something we already know and slowly build up a solution that resembles OAuth2.&lt;/p&gt;
+&lt;h2&gt;&lt;a href=&quot;#once-upon-a-time&quot; aria-hidden=&quot;true&quot; class=&quot;anchor&quot; id=&quot;once-upon-a-time&quot;&gt;&lt;/a&gt;Once upon a time...&lt;/h2&gt;
+&lt;p&gt;Every application implemented its own authentication mechanism. Users will authenticate with each application and then use its services.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/2020-05-18/before-oauth2.png&quot; alt=&quot;Before OAuth2&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;This setup works but there are a few problems associated with it&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Users have to set up their identity multiple times in different applications.&lt;/li&gt;
+&lt;li&gt;It is not easy to let &amp;quot;Application - A&amp;quot; access resources of &amp;quot;Application - B&amp;quot; without sharing secrets&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;&lt;a href=&quot;#centralise-identity&quot; aria-hidden=&quot;true&quot; class=&quot;anchor&quot; id=&quot;centralise-identity&quot;&gt;&lt;/a&gt;Centralise Identity&lt;/h2&gt;
+&lt;p&gt;If the two applications ( A &amp;amp; B ) are part of a larger ecosystem of applications then it is possible to  extract the identity itself as a central application. Now the landscape looks like&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/2020-05-18/central-idp.png&quot; alt=&quot;Central IDP&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;This solves the challenge of duplicating identities but creates a new problem.How can you safely convey to Application  A &amp;amp; B that we have already authenticated via this central Application - Identity? We can’t and shouldn’t share secrets but we can use tokens.&lt;/p&gt;
+&lt;h2&gt;&lt;a href=&quot;#tokens&quot; aria-hidden=&quot;true&quot; class=&quot;anchor&quot; id=&quot;tokens&quot;&gt;&lt;/a&gt;Tokens&lt;/h2&gt;
+&lt;p&gt;Once the user authenticates with our “Application - identity” we can create a token and use it to  communicate the intent that the user has successfully authenticated with Application A and B. Tokens act as a level of indirection to a user's credentials so we don’t have to share them to prove the identity of the user.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/2020-05-18/oauth2.png&quot; alt=&quot;OAuth2&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;However we do need some mechanism to manage the lifecycle of these tokens i.e. make sure they can’t be tampered, expose APIs to validate their lifetime or refresh before it expires. For now let's call it Token management application&lt;/p&gt;
+&lt;h2&gt;&lt;a href=&quot;#oauth2-terminology&quot; aria-hidden=&quot;true&quot; class=&quot;anchor&quot; id=&quot;oauth2-terminology&quot;&gt;&lt;/a&gt;OAuth2 Terminology&lt;/h2&gt;
+&lt;p&gt;With this background we can now map our setup to OAuth2 terminology&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Application A  &amp;amp;  B     =&amp;gt;   Client applications or just clients&lt;/li&gt;
+&lt;li&gt;Application - Identity  =&amp;gt;  Identity Provider&lt;/li&gt;
+&lt;li&gt;Application - Token management   =&amp;gt;   OAuth2 Provider&lt;/li&gt;
+&lt;li&gt;Tokens  =&amp;gt;  Bearer token&lt;/li&gt;
+&lt;li&gt;Users   =&amp;gt; Resource owner&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;OAuth2 Provider is authorizing the access of Applications (A &amp;amp; B) to the user's resources via the bearer token. It is still the Identity provider that authenticates user. With this context we can tweak the definition of OAuth2 little bit to explicity convey this nouanced difference.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;em&gt;“OAuth2 is the industry-standard protocol for authorize access to user’s resources”&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
 </content>
 
         <author>

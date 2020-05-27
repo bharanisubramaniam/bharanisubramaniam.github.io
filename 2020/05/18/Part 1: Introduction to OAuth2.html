@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Introduction to OAuth2 | Iter 0</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="description" content="Empowering everyone to build reliable and efficient software.">
+     <!-- Twitter card -->
+ <meta name="twitter:card" content="summary">
+ <meta name="twitter:site" content="@bharani_sub">
+ <meta name="twitter:creator" content="@bharani_sub">
+ <meta name="twitter:title" content="Introduction to OAuth2 | Iter 0">
+ <meta name="twitter:description" content="Iter0 is my personal blog. This is my attempt to write down my experience in trying out different software solutions.">
+<meta name="twitter:image" content="https://www.rust-lang.org/static/images/rust-social.jpg">
+
+<!-- Facebook OpenGraph -->
+<meta property="og:title" content="Introduction to OAuth2 | Iter 0" />
+<meta property="og:description" content="Iter0 is my personal blog. This is my attempt to write down my experience in trying out different software solutions.">
+<meta property="og:image" content="https://www.rust-lang.org/static/images/rust-social-wide.jpg" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="en_US" />
+
+<!-- fonts -->
+<link rel="preload" as="font" crossorigin href="/fonts/AlfaSlabOne-Regular.ttf">
+<link rel="preload" as="font" crossorigin href="/fonts/FiraSans-ExtraBold.ttf">
+<link rel="preload" as="font" crossorigin href="/fonts/FiraSans-ExtraBoldItalic.ttf">
+<link rel="preload" as="font" crossorigin href="/fonts/FiraSans-Italic.ttf">
+<link rel="preload" as="font" crossorigin href="/fonts/FiraSans-Italic.ttf">
+<link rel="preload" as="font" crossorigin href="/fonts/FiraSans-Regular.ttf">
+<link rel="preload" as="font" crossorigin href="/fonts/FiraSans-SemiBold.ttf">
+<link rel="preload" as="font" crossorigin href="/fonts/FiraSans-SemiBoldItalic.ttf">
+
+<!-- styles -->
+<link rel="stylesheet" href="/styles/vendor.css"/>
+<link rel="stylesheet" href="/styles/fonts.css"/>
+<link rel="stylesheet" href="/styles/app.css"/>
+<link rel="stylesheet" href="/styles/highlight.css"/>
+
+<!-- favicon -->
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+<link rel="shortcut icon" href="/images/favicon.ico">
+<link rel="manifest" href="/images/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#00aba9">
+<meta name="theme-color" content="#ffffff">
+
+ <!-- atom -->
+ <link type="application/atom+xml" rel="alternate" href="https://blog.rust-lang.org/feed.xml" title="Iter 0" />
+
+  </head>
+  <body>
+    <nav class="flex flex-row justify-center justify-end-l items-center flex-wrap ph2 pl3-ns pr4-ns">
+  <div class="brand flex-auto w-100 w-auto-l self-start tc tl-l">
+    <a href="/">
+      <img class="v-mid ml0-l" alt="Iter0 Logo" src="/images/iter0.png">
+      <span class="dib ml1 ml0-l">Iter 0</span>
+    </a>
+  </div>
+
+  <ul class="nav list w-100 w-auto-l flex flex-none flex-row flex-wrap justify-center justify-end-l items-center pv2 ph0 ph4-ns">
+    <li class="tc pv2 ph2 ph4-ns flex-20-s"><a href="#">About</a></li>
+  </ul>
+</nav>
+
+<section id="Introduction to OAuth2" class="white">
+  <div class="w-100 mw-none ph3 mw8-m mw8-l center f3">
+    <header>
+      <h2>Introduction to OAuth2</h2>
+      <div class="highlight"></div>
+    </header>
+
+    <div class="publish-date-author">May 18, 2020 &middot; Bharani
+    
+    </div>
+
+    <div class="post">
+      <h2><a href="#what-is-oauth2" aria-hidden="true" class="anchor" id="what-is-oauth2"></a>What is OAuth2?</h2>
+<p>When you search for OAuth2 you come across definitions like</p>
+<blockquote>
+<p><em>“OAuth2 is the industry-standard protocol for authorization”</em></p>
+</blockquote>
+<p>We usually relate authorization to a framework that enables us to restrict user activities. We implicitly assume that the user is first authenticated into the system before these authorization rules can be enforced. But OAuth2 is not such an authorization framework. If you are a beginner it is hard to clearly define OAuth2 without highlighting the needs that drove the industry towards it.</p>
+<p>We start with something we already know and slowly build up a solution that resembles OAuth2.</p>
+<h2><a href="#once-upon-a-time" aria-hidden="true" class="anchor" id="once-upon-a-time"></a>Once upon a time...</h2>
+<p>Every application implemented its own authentication mechanism. Users will authenticate with each application and then use its services.</p>
+<p><img src="/images/2020-05-18/before-oauth2.png" alt="Before OAuth2" /></p>
+<p>This setup works but there are a few problems associated with it</p>
+<ol>
+<li>Users have to set up their identity multiple times in different applications.</li>
+<li>It is not easy to let &quot;Application - A&quot; access resources of &quot;Application - B&quot; without sharing secrets</li>
+</ol>
+<h2><a href="#centralise-identity" aria-hidden="true" class="anchor" id="centralise-identity"></a>Centralise Identity</h2>
+<p>If the two applications ( A &amp; B ) are part of a larger ecosystem of applications then it is possible to  extract the identity itself as a central application. Now the landscape looks like</p>
+<p><img src="/images/2020-05-18/central-idp.png" alt="Central IDP" /></p>
+<p>This solves the challenge of duplicating identities but creates a new problem.How can you safely convey to Application  A &amp; B that we have already authenticated via this central Application - Identity? We can’t and shouldn’t share secrets but we can use tokens.</p>
+<h2><a href="#tokens" aria-hidden="true" class="anchor" id="tokens"></a>Tokens</h2>
+<p>Once the user authenticates with our “Application - identity” we can create a token and use it to  communicate the intent that the user has successfully authenticated with Application A and B. Tokens act as a level of indirection to a user's credentials so we don’t have to share them to prove the identity of the user.</p>
+<p><img src="/images/2020-05-18/oauth2.png" alt="OAuth2" /></p>
+<p>However we do need some mechanism to manage the lifecycle of these tokens i.e. make sure they can’t be tampered, expose APIs to validate their lifetime or refresh before it expires. For now let's call it Token management application</p>
+<h2><a href="#oauth2-terminology" aria-hidden="true" class="anchor" id="oauth2-terminology"></a>OAuth2 Terminology</h2>
+<p>With this background we can now map our setup to OAuth2 terminology</p>
+<ul>
+<li>Application A  &amp;  B     =&gt;   Client applications or just clients</li>
+<li>Application - Identity  =&gt;  Identity Provider</li>
+<li>Application - Token management   =&gt;   OAuth2 Provider</li>
+<li>Tokens  =&gt;  Bearer token</li>
+<li>Users   =&gt; Resource owner</li>
+</ul>
+<p>OAuth2 Provider is authorizing the access of Applications (A &amp; B) to the user's resources via the bearer token. It is still the Identity provider that authenticates user. With this context we can tweak the definition of OAuth2 little bit to explicity convey this nouanced difference.</p>
+<blockquote>
+<p><em>“OAuth2 is the industry-standard protocol for authorize access to user’s resources”</em></p>
+</blockquote>
+
+    </div>
+  </div>
+</section>
+
+    <footer>
+  <div class="w-100 mw-none ph3 mw8-m mw9-l center f3">
+    <div class="row">
+      <div class="four columns mt3 mt0-l">
+        <h4>Social</h4>
+        <a href="https://twitter.com/bharani_sub" target="_blank" rel="noopener" alt="twitter link"><img src="/images/twitter.svg" alt="twitter logo" title="Twitter"/></a>
+        <a href="https://github.com/bharanisubramaniam" target="_blank" rel="noopener" alt="github link"><img src="/images/github.svg" alt="github logo" title="GitHub"/></a>
+      </div>
+
+    </div>
+    <div class="attribution">
+      Layout forked from <a href="https://blog.rust-lang.org/" target="_blank" rel="noopener">Rust blog</a>!
+    </div>
+  </div>
+</footer>
+
+<!-- scripts -->
+<script src="/scripts/highlight.js"></script>
+
+  </body>
+</html>
