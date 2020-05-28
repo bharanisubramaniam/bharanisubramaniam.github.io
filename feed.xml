@@ -10,7 +10,7 @@
         <name>Maintained by Bharani.</name>
         <uri>https://github.com/rust-lang/blog.rust-lang.org/</uri>
     </author>
-    <updated>2020-05-27T11:23:31.497064+00:00</updated>
+    <updated>2020-05-28T04:23:54.294713+00:00</updated>
 
     
     <entry>
@@ -24,7 +24,7 @@
 &lt;blockquote&gt;
 &lt;p&gt;&lt;em&gt;“OAuth2 is the industry-standard protocol for authorization”&lt;/em&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;We usually relate authorization to a framework that enables us to restrict user activities. We implicitly assume that the user is first authenticated into the system before these authorization rules can be enforced. But OAuth2 is not such an authorization framework. If you are a beginner it is hard to clearly define OAuth2 without highlighting the needs that drove the industry towards it.&lt;/p&gt;
+&lt;p&gt;We usually relate authorization to a framework that enables us to restrict user activities and we implicitly assume that the user is first authenticated before these authorization rules can be enforced. But OAuth2 is not such an authorization framework. If you are a beginner it is hard to clearly define OAuth2 without highlighting the needs that drove the industry towards it.&lt;/p&gt;
 &lt;p&gt;We start with something we already know and slowly build up a solution that resembles OAuth2.&lt;/p&gt;
 &lt;h2&gt;&lt;a href=&quot;#once-upon-a-time&quot; aria-hidden=&quot;true&quot; class=&quot;anchor&quot; id=&quot;once-upon-a-time&quot;&gt;&lt;/a&gt;Once upon a time...&lt;/h2&gt;
 &lt;p&gt;Every application implemented its own authentication mechanism. Users will authenticate with each application and then use its services.&lt;/p&gt;
