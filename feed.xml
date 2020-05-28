@@ -10,16 +10,30 @@
         <name>Maintained by Bharani.</name>
         <uri>https://github.com/rust-lang/blog.rust-lang.org/</uri>
     </author>
-    <updated>2020-05-28T04:32:26.659777+00:00</updated>
+    <updated>2020-05-28T10:14:07.125872+00:00</updated>
 
     
     <entry>
+        <title>[Draft] Hydra - OAuth2 Provider</title>
+        <link rel="alternate" href="https://blog.rust-lang.org/2020/05/28/Hydra - OAuth2 Provider.html" type="text/html" title="[Draft] Hydra - OAuth2 Provider" />
+        <published>2020-05-28T00:00:00+00:00</published>
+        <updated>2020-05-28T00:00:00+00:00</updated>
+        <id>https://blog.rust-lang.org/2020/05/28/Hydra - OAuth2 Provider.html</id>
+        <content type="html" xml:base="https://blog.rust-lang.org/2020/05/28/Hydra - OAuth2 Provider.html">&lt;h2&gt;&lt;a href=&quot;#what-is-oauth2&quot; aria-hidden=&quot;true&quot; class=&quot;anchor&quot; id=&quot;what-is-oauth2&quot;&gt;&lt;/a&gt;What is OAuth2?&lt;/h2&gt;
+</content>
+
+        <author>
+            <name>Bharani</name>
+        </author>
+    </entry>
+    
+    <entry>
         <title>Introduction to OAuth2</title>
-        <link rel="alternate" href="https://blog.rust-lang.org/2020/05/18/Part 1: Introduction to OAuth2.html" type="text/html" title="Introduction to OAuth2" />
+        <link rel="alternate" href="https://blog.rust-lang.org/2020/05/18/Introduction to OAuth2.html" type="text/html" title="Introduction to OAuth2" />
         <published>2020-05-18T00:00:00+00:00</published>
         <updated>2020-05-18T00:00:00+00:00</updated>
-        <id>https://blog.rust-lang.org/2020/05/18/Part 1: Introduction to OAuth2.html</id>
-        <content type="html" xml:base="https://blog.rust-lang.org/2020/05/18/Part 1: Introduction to OAuth2.html">&lt;h2&gt;&lt;a href=&quot;#what-is-oauth2&quot; aria-hidden=&quot;true&quot; class=&quot;anchor&quot; id=&quot;what-is-oauth2&quot;&gt;&lt;/a&gt;What is OAuth2?&lt;/h2&gt;
+        <id>https://blog.rust-lang.org/2020/05/18/Introduction to OAuth2.html</id>
+        <content type="html" xml:base="https://blog.rust-lang.org/2020/05/18/Introduction to OAuth2.html">&lt;h2&gt;&lt;a href=&quot;#what-is-oauth2&quot; aria-hidden=&quot;true&quot; class=&quot;anchor&quot; id=&quot;what-is-oauth2&quot;&gt;&lt;/a&gt;What is OAuth2?&lt;/h2&gt;
 &lt;p&gt;When you search for OAuth2 you come across definitions like&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&lt;em&gt;“OAuth2 is the industry-standard protocol for authorization”&lt;/em&gt;&lt;/p&gt;
@@ -53,7 +67,7 @@
 &lt;/ul&gt;
 &lt;p&gt;OAuth2 Provider is authorizing the access of Applications (A &amp;amp; B) to the user's resources via the bearer token. It is still the Identity provider that authenticates user. With this context we can tweak the definition of OAuth2 little bit to explicity convey this nouanced difference.&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;&lt;em&gt;“OAuth2 is the industry-standard protocol for authorize access to user’s resources”&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;“OAuth2 is the industry-standard protocol for authorizing access to user’s resources”&lt;/em&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 </content>
 
