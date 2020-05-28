@@ -82,7 +82,7 @@
 <p><em>“OAuth2 is the industry-standard protocol for authorization”</em></p>
 </blockquote>
 <p>We usually relate authorization to a framework that enables us to restrict user activities and we implicitly assume that the user is first authenticated before these authorization rules can be enforced. But OAuth2 is not such an authorization framework. If you are a beginner it is hard to clearly define OAuth2 without highlighting the needs that drove the industry towards it.</p>
-<p>We start with something we already know and slowly build up a solution that resembles OAuth2.</p>
+<p>Let's start with a simple authentication setup, highlight the problems we face in this setup and then slowly make changes to address these problems.Towards the end we will connect it all back to OAuth2.</p>
 <h2><a href="#once-upon-a-time" aria-hidden="true" class="anchor" id="once-upon-a-time"></a>Once upon a time...</h2>
 <p>Every application implemented its own authentication mechanism. Users will authenticate with each application and then use its services.</p>
 <p><img src="/images/2020-05-18/before-oauth2.png" alt="Before OAuth2" /></p>
