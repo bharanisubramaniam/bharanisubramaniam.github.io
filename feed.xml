@@ -10,7 +10,7 @@
         <name>Maintained by Bharani.</name>
         <uri>https://github.com/rust-lang/blog.rust-lang.org/</uri>
     </author>
-    <updated>2020-05-28T10:14:07.125872+00:00</updated>
+    <updated>2020-06-01T04:33:36.871068+00:00</updated>
 
     
     <entry>
@@ -19,7 +19,9 @@
         <published>2020-05-28T00:00:00+00:00</published>
         <updated>2020-05-28T00:00:00+00:00</updated>
         <id>https://blog.rust-lang.org/2020/05/28/Hydra - OAuth2 Provider.html</id>
-        <content type="html" xml:base="https://blog.rust-lang.org/2020/05/28/Hydra - OAuth2 Provider.html">&lt;h2&gt;&lt;a href=&quot;#what-is-oauth2&quot; aria-hidden=&quot;true&quot; class=&quot;anchor&quot; id=&quot;what-is-oauth2&quot;&gt;&lt;/a&gt;What is OAuth2?&lt;/h2&gt;
+        <content type="html" xml:base="https://blog.rust-lang.org/2020/05/28/Hydra - OAuth2 Provider.html">&lt;h2&gt;&lt;a href=&quot;#when-to-host-an-oauth2-provider&quot; aria-hidden=&quot;true&quot; class=&quot;anchor&quot; id=&quot;when-to-host-an-oauth2-provider&quot;&gt;&lt;/a&gt;When to host an OAuth2 provider?&lt;/h2&gt;
+&lt;h2&gt;&lt;a href=&quot;#what-is-hydra&quot; aria-hidden=&quot;true&quot; class=&quot;anchor&quot; id=&quot;what-is-hydra&quot;&gt;&lt;/a&gt;What is Hydra?&lt;/h2&gt;
+&lt;h2&gt;&lt;a href=&quot;#authorization-code-flow-with-hydra&quot; aria-hidden=&quot;true&quot; class=&quot;anchor&quot; id=&quot;authorization-code-flow-with-hydra&quot;&gt;&lt;/a&gt;Authorization Code Flow with Hydra&lt;/h2&gt;
 </content>
 
         <author>
@@ -65,7 +67,7 @@
 &lt;li&gt;Tokens  =&amp;gt;  Bearer token&lt;/li&gt;
 &lt;li&gt;Users   =&amp;gt; Resource owner&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;OAuth2 Provider is authorizing the access of Applications (A &amp;amp; B) to the user's resources via the bearer token. It is still the Identity provider that authenticates user. With this context we can tweak the definition of OAuth2 little bit to explicity convey this nouanced difference.&lt;/p&gt;
+&lt;p&gt;OAuth2 Provider is authorizing the access of Applications (A &amp;amp; B) to the user's resources via the bearer token. It is still the Identity provider that authenticates user. With this context we can tweak the definition of OAuth2 to explicity convey this nuanced difference.&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&lt;em&gt;“OAuth2 is the industry-standard protocol for authorizing access to user’s resources”&lt;/em&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
